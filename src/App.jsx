@@ -1,13 +1,16 @@
-import { useState } from 'react'
+
 import './App.css'
+import Dashboard from './Components/dashBoard'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
-    <>
-<h1>21254</h1>
-    </>
+  <div>
+
+<Dashboard />
+
+  </div>
   )
 }
 
