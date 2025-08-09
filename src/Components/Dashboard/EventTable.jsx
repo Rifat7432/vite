@@ -1,5 +1,5 @@
-import React from 'react';
-import { Eye, Edit, Trash2 } from 'lucide-react';
+import { Eye, Edit, Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const EventTable = ({ events, onCreateEvent }) => (
   <div className="bg-white rounded-lg shadow-sm">
@@ -9,12 +9,15 @@ const EventTable = ({ events, onCreateEvent }) => (
         <input
           type="text"
           placeholder="Search..."
-          className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm"
+          className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm outline-0"
         />
         <button className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
           Search
         </button>
-        <button className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors ml-2" onClick={onCreateEvent}>
+        <button
+          className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors ml-2"
+          onClick={onCreateEvent}
+        >
           Create Event
         </button>
       </div>
@@ -23,12 +26,20 @@ const EventTable = ({ events, onCreateEvent }) => (
       <table className="w-full">
         <thead className="bg-cyan-400 text-white">
           <tr>
-            <th className="px-4 py-3 text-left text-sm font-medium">Event ID</th>
+            <th className="px-4 py-3 text-left text-sm font-medium">
+              Event ID
+            </th>
             <th className="px-4 py-3 text-left text-sm font-medium">Name</th>
-            <th className="px-4 py-3 text-left text-sm font-medium">Password</th>
+            <th className="px-4 py-3 text-left text-sm font-medium">
+              Password
+            </th>
             <th className="px-4 py-3 text-left text-sm font-medium">Date</th>
-            <th className="px-4 py-3 text-left text-sm font-medium">Location</th>
-            <th className="px-4 py-3 text-left text-sm font-medium">Live Monitoring</th>
+            <th className="px-4 py-3 text-left text-sm font-medium">
+              Location
+            </th>
+            <th className="px-4 py-3 text-left text-sm font-medium">
+              Live Monitoring
+            </th>
             <th className="px-4 py-3 text-left text-sm font-medium">Tickets</th>
             <th className="px-4 py-3 text-left text-sm font-medium">Action</th>
           </tr>
@@ -43,18 +54,29 @@ const EventTable = ({ events, onCreateEvent }) => (
                 <Eye className="w-4 h-4 ml-2 text-gray-400 cursor-pointer" />
               </td>
               <td className="px-4 py-3 text-sm text-gray-900">{event.date}</td>
-              <td className="px-4 py-3 text-sm text-gray-900">{event.location}</td>
-              <td className="px-4 py-3">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-100 text-cyan-800">
-                  {event.liveMonitoring}
-                </span>
+              <td className="px-4 py-3 text-sm text-gray-900">
+                {event.location}
               </td>
-              <td className="px-4 py-3 text-sm text-gray-900">{event.tickets}</td>
+              <td className="px-4 py-3">
+                <Link
+                  to="/event-management"
+                  className="px-4 py-1 text-cyan-500  rounded-full border border-cyan-500 "
+                >
+                  {event.liveMonitoring}
+                </Link>
+              </td>
+              <td className="px-4 py-3 text-sm text-gray-900">
+                {event.tickets}
+              </td>
               <td className="px-4 py-3">
                 <div className="flex items-center space-x-2">
-                  <button className="p-1 text-cyan-500 hover:bg-cyan-50 rounded">
-                    <Eye className="w-4 h-4" />
-                  </button>
+                  <Link
+                    to="/qr-code"
+                    className="px-4 py-1 text-cyan-500  rounded-full border border-cyan-500 "
+                  >
+                    QR Code
+                  </Link>
+
                   <button className="p-1 text-blue-500 hover:bg-blue-50 rounded">
                     <Edit className="w-4 h-4" />
                   </button>

@@ -1,32 +1,26 @@
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import EventAttendees from './pages/EventAttendees'
-import EventManagement from './pages/EventManagement'
-import EventQRCode from './pages/EventQRCode'
-import './App.css'
-import Dashboard from './Components/dashBoard'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import EventManagement from "./pages/EventManagement";
+import EventQRCode from "./pages/EventQRCode";
+import EventAttendees from "./pages/EventAttendees";
+import Dashboard from "./components/Dashboard";
+import Home from "./pages/Home";
 
 function App() {
- 
-
-//   return (
-//   <div>
-
-// <Dashboard />
-
-//   </div>
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<EventManagement />} />
-          <Route path="/attendees" element={<EventAttendees />} />
-          <Route path="/qr-code" element={<EventQRCode />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Dashboard />}>
+          {/* "/" will show Home */}
+          <Route index element={<Home />} />
+
+          {/* Other pages */}
+          <Route path="event-management"  element={<EventManagement />} />
+          <Route path="qr-code" element={<EventQRCode />} />
+          <Route path="attendees" element={<EventAttendees />} />
+        </Route>
+      </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
