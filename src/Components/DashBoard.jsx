@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Dashboard/Sidebar";
 import Header from "./Dashboard/Header";
+import { Toaster } from "sonner";
 
 const Dashboard = () => {
   return (
@@ -10,6 +11,7 @@ const Dashboard = () => {
         <Header />
         <Outlet />
       </div>
+      <Toaster richColors position="top-center" />
     </div>
   );
 };

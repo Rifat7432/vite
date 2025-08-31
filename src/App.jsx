@@ -14,8 +14,8 @@ function App() {
           <Route index element={<Home />} />
 
           {/* Other pages */}
-          <Route path="event-management"  element={<EventManagement />} />
-          <Route path="qr-code" element={<EventQRCode />} />
+          <Route path="event-management/:eventID"  element={<EventManagement />} />
+          <Route path="qr-code/:eventID" element={<EventQRCode />} />
           <Route path="attendees" element={<EventAttendees />} />
         </Route>
       </Routes>
